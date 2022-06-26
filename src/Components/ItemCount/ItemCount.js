@@ -4,7 +4,7 @@ import Button from "@mui/material/Button"
 
 const ItemCount = ({handleAdd, stock}) => {
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
      
     const onAdd = () =>{
         setCount(count + 1  )
@@ -20,7 +20,7 @@ const ItemCount = ({handleAdd, stock}) => {
      <p style={{display:"flex" ,justifyContent:"center"}}>{count}</p>
      <div style={{display:"flex",flexDirection:"row", justifyContent:"center", padding:20}}>
      <Button variant="outlined" onClick={onAdd}  disabled={count === stock}>+</Button>
-    <Button variant="outlined" onClick={onDecrement} disabled={count <= 0}>-</Button>
+    <Button variant="outlined" onClick={onDecrement} disabled={count <= 1}>-</Button>
      </div>
     <Button variant='contained' style={{backgroundColor:"#4E60FF"}} disabled={stock <= 0} onClick={() => handleAdd(count)} >Add to cart</Button>
     </div>
