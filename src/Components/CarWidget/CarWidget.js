@@ -8,7 +8,7 @@ import { IconButton} from '@mui/material';
             size="small"
             edge="start"
           >
-             <LocalGroceryStoreIcon style={{color:"#4E60FF", backgroundColor:"#F3F4FF", width:35, height:35, borderRadius:10, marginLeft:8}}/>
+             <LocalGroceryStoreIcon className='Icon-CardWidget' style={{color:"#363062", backgroundColor:"#F9F9F9", width:35, height:35, borderRadius:10, marginLeft:8}}/>
           </IconButton>
   )
 }

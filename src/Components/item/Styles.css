@@ -1,0 +1,9 @@
+.Card{
+    margin-top: 150px;
+}
+.Heart-Icon_Card{
+  
+    width: 20px;
+    height: 20px; 
+    border-radius: 10px;
+}
