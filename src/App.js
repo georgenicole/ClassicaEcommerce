@@ -1,15 +1,21 @@
 import React from "react";
-import ItemListContainer from "./Components/Containers/ItemListContainer";
+import ItemListContainer from "./Containers/ItemListContainer";
 import NavBar from "./Components/NavBar/NavBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+
+
 
 
 
 function App() {
   return (
- <div>
+  <BrowserRouter>
  <NavBar/>
- <ItemListContainer greeting="Hello, welcome!" phrase="Did you know that whatever you want to eat, thanks to our delivery services you can have it in moments?"/>
- </div>
+ <Routes>
+<Route path="/" element={ItemListContainer}></Route>
+<Route path="/category/:id" element={ItemListContainer}></Route>
+ </Routes>
+ </BrowserRouter>
   );
 }
 

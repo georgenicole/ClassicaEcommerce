@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import "./Styles.css"
-import ItemCount from '../ItemCount/ItemCount'
-import ItemList from '../ItemList/ItemList'
+import ItemCount from '../Components/ItemCount/ItemCount'
+import ItemList from '../Components/ItemList/ItemList'
 
 
 
