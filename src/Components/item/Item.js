@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Typography, CardMedia, CardContent, CardActions} from '@mui/material'
+import { Button, Card, Typography, CardContent, CardActions, Grid} from '@mui/material'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IconButton from '@mui/material/IconButton';
 import "./Styles.css"
@@ -8,12 +8,12 @@ import "./Styles.css"
 const Item = ({prod}) => {
     const { title, price, image} = prod
   return (
-    
-<Card sx={{ maxWidth: 345}} className='Card' >
-     
+    <div className='card' style={{widtd:"100%", height:"100%", display:'flex'}}>
+    <div className='card__body' style={{}}>
+    <Card sx={{ maxWidth: 300}} className='Card' >
       {image}
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+        <Typography gutterBottom variant="h5" component="div" className='card__title'>
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
@@ -21,7 +21,7 @@ const Item = ({prod}) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" className='AddtoCart-Button_Card' variant='text' style={{color:'#827397', marginRight:115}}>Add to Cart</Button>
+        <Button size="small" className='card__btn' variant='text' style={{color:'#827397', marginRight:115}}>Add to Cart</Button>
         <IconButton
             size="small"
             edge="start"
@@ -31,6 +31,11 @@ const Item = ({prod}) => {
           </IconButton>
       </CardActions>
     </Card>
+  
+    </div>
+
+    </div>
+
   )
 
 

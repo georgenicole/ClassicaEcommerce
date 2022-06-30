@@ -4,7 +4,8 @@ import "./styles.css"
 
 const ItemList = ({info}) => {
   return (
-    <div className='Cards' style={{display:"flex", justifyContent:'space-around',}}>
+    
+    <div  className='itemContainer'>
         {info?.map(prod => <Item key={prod.id} prod={prod}/>)}
     </div>
   )
