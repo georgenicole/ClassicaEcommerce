@@ -7,46 +7,56 @@ import ItemList from '../Components/ItemList/ItemList'
 
 const ItemListContainer = () => {
 
-const [data, setData]= useState([])
+const [productos, setProductos]= useState([])
 
-const productos = [
-  { id:'1',title: 'cornbread', price: '$1.400', image: <img className='ImageCard' src='https://images.pexels.com/photos/3850997/pexels-photo-3850997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Cornbread'></img> },
-  { id:'2',title: 'Baguette', price: '$1.300', image: <img className='ImageCard' src='https://images.pexels.com/photos/1775039/pexels-photo-1775039.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Baguette'></img> },
-  { id:'3',title: 'Bagel', price: '$1.500', image: <img className='ImageCard' src='https://images.pexels.com/photos/8400774/pexels-photo-8400774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Bagel'></img> },
-  { id:'4',title: 'Birote', price: '$900', image: <img className='ImageCard' src='https://images.pexels.com/photos/209196/pexels-photo-209196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Birote' ></img>},
-  { id:'5',title: 'cornbread', price: '$1.900', image: <img className='ImageCard' src='https://images.pexels.com/photos/3850997/pexels-photo-3850997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Cornbread'></img> },
-  { id:'6',title: 'Baguette', price: '$1.000', image: <img className='ImageCard' src='https://images.pexels.com/photos/1775039/pexels-photo-1775039.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Baguette'></img> },
-  { id:'7',title: 'Bagel', price: '$1.800', image: <img className='ImageCard' src='https://images.pexels.com/photos/8400774/pexels-photo-8400774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Bagel'></img> },
-  { id:'8',title: 'Birote', price: '$800', image: <img className='ImageCard' src='https://images.pexels.com/photos/209196/pexels-photo-209196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Birote' ></img>},
+const getProducts = async() => {
+    try {
+      const response = await fetch('https://run.mocky.io/v3/6a868a34-2989-44f5-8dcb-1d8bb6640bd0');
+      const data = await response.json();
+      console.log(data);
+      setProductos(data);
+    } catch(error) {
+       console.log('error');
+    }}
+     
 
-  
-  
-  
+  useEffect(()=>{
+    getProducts();
+  }, [])
 
-]
-
-const task = new Promise ((res, rej) => {
-  setTimeout(() =>{
-    res(productos)
-  },2000)
-
-})
-
-useEffect(()=>{
- 
-task 
-.then((res=>setData(res)))
-  
-}, [])
-
-console.log(data)
-  
   return (
     
     <div>
-    <ItemList info={data}/>
+      {productos ?
+    <ItemList products={productos}/>
+    :
+    null
+      }
     </div>
   )
+    
   }
 
 export default ItemListContainer;
+
+ 
+/*
+const productos = [
+  { id:'1',title: 'Cornbread', price: '$1.400', image: <img className='ImageCard' src='https://images.pexels.com/photos/3850997/pexels-photo-3850997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Cornbread'></img> },
+  { id:'2',title: 'Ginger Cookies', price: '$300', image: <img className='ImageCard' src='https://images.pexels.com/photos/6119145/pexels-photo-6119145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Ginger cookie'></img> },
+  { id:'3',title: 'Chocolate Donut', price: '$500', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/dark-chocolate-icing-donuts-brown-background_23-2147895919.jpg?t=st=1656652653~exp=1656653253~hmac=e1310784ce6ec43aad8791a1c410d333b26f525f26b8af5dd7ad5291980dbeb2&w=1480' alt='Chocolate Donut'></img> },
+  { id:'4',title: 'Baguette', price: '$900', image: <img className='ImageCard' src='https://images.pexels.com/photos/1775039/pexels-photo-1775039.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt='Baguette' ></img>},
+  { id:'5',title: 'Chocolate Chip Cookies', price: '$450', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/selective-focus-shot-chocolate-chip-cookies-white-surface_181624-31895.jpg?t=st=1656652848~exp=1656653448~hmac=5e94b275df391e23705c8b67dd9329ecf2bbef04521fd9a80d6f3aaa56e615ee&w=1480' alt='chocolate chip cookie'></img> },
+  { id:'6',title: 'Glazed Donut', price: '$320', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/homemade-delicious-doughnuts-dessert_144627-36752.jpg?t=st=1656653001~exp=1656653601~hmac=55b8fd2ee754b14dc2f3250b13608231e1397d011d47a26c4bd72530d7da6f7a&w=1480' alt='Glazed Donut'></img> },
+  { id:'7',title: 'Bagel', price: '$800', image: <img className='ImageCard' src='https://images.pexels.com/photos/8400774/pexels-photo-8400774.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Bagel'></img> },
+  { id:'8',title: 'Oatmeal Cookies', price: '$430', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/oat-cookies_1339-2006.jpg?t=st=1656653215~exp=1656653815~hmac=6917fe3724cd0f971a3a0afe61ce64b9379b4eac8d836d7f53e94a5f91732024&w=1480' alt='Oatmeal cookie' ></img>},
+  { id:'9',title: 'cornbread', price: '$1.900', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/fresh-tasty-donuts-with-glaze_144627-880.jpg?t=st=1656648167~exp=1656648767~hmac=575a33f9dc54d77fc2fdce37ffafd61d2c2dc1e4016b2284379aa71838c9d046&w=1480' alt='Strawberry Donut'></img> },
+  { id:'10',title: 'Strawberry Donuts', price: '$850', image: <img className='ImageCard' src='https://images.pexels.com/photos/209196/pexels-photo-209196.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2' alt='Birote'></img> },
+  { id:'11',title: 'Chocolate Cookies', price: '$510', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/soft-dark-chocolate-brownie-cookies-brown-background_106006-8471.jpg?w=1480' alt='Chocolate cookie'></img> },
+  { id:'12',title: 'Classic Donuts', price: '$200', image: <img className='ImageCard' src='https://img.freepik.com/free-photo/two-glazed-donuts-marble_114579-46459.jpg?t=st=1656654398~exp=1656654998~hmac=919d858855faf686ef18b743b746b8c963c20bf5ca3a3cc8514113288cc0384f&w=1480' alt='Classic Donut' ></img>},
+]*/
+
+
+
+
+  

@@ -6,28 +6,27 @@ import "./Styles.css"
 
 
 const Item = ({prod}) => {
-    const { title, price, image} = prod
   return (
     <div className='card' style={{widtd:"100%", height:"100%", display:'flex'}}>
     <div className='card__body' style={{}}>
     <Card sx={{ maxWidth: 300}} className='Card' >
-      {image}
+      {prod.image}
       <CardContent>
         <Typography gutterBottom variant="h5" component="div" className='card__title'>
-          {title}
+          {prod.title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {price}
+          {prod.price}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" className='card__btn' variant='text' style={{color:'#827397', marginRight:115}}>Add to Cart</Button>
+        <Button size="small" className='card__btn' variant='text' style={{color:'#BF9270', marginRight:115}}>Add to Cart</Button>
         <IconButton
             size="small"
             edge="start"
           
            >
-             <FavoriteBorderIcon  style={{color:'#4D4C7D'}} />
+             <FavoriteBorderIcon  style={{color:"#BF9270", backgroundColor:"#FAEEE0", width:25, height:27, borderRadius:9, marginLeft:10}} />
           </IconButton>
       </CardActions>
     </Card>

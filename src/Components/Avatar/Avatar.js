@@ -1,12 +1,17 @@
 import React from 'react';
 import AvatarPhoto from "../Logo/AvatarPhoto.png"
-import { Avatar } from '@mui/material';
+import { IconButton } from '@mui/material';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 
 const AvatarImage = () => {
     return(
-        
-         <Avatar alt="Remy Sharp" src={AvatarPhoto} sx={{ width: 42, height: 40, marginLeft:3}} variant="rounded" />
+        <IconButton
+            size="small"
+            edge="start"
+          >
+             <PersonOutlineIcon className='Icon-CardWidget' style={{color:"#BF9270", backgroundColor:"#FFEDDB", width:35, height:35, borderRadius:10, marginLeft:8}}/>
+          </IconButton>
     )
 }
 
