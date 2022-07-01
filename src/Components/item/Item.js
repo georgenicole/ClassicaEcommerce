@@ -10,13 +10,15 @@ import {
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import IconButton from "@mui/material/IconButton";
 import "./Styles.css";
+import { useNavigate } from "react-router-dom";
 
 const Item = ({ prod }) => {
-  console.log(prod);
+  let navigate = useNavigate();
   return (
     <div
       className="card"
       style={{ widtd: "100%", height: "100%", display: "flex" }}
+      onClick={() => navigate(`/${prod.id}`)}
     >
       <div className="card__body" style={{}}>
         <Card sx={{ maxWidth: 300, minHeight: 433 }} className="Card">
