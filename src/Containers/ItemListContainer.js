@@ -1,45 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import "./Styles.css"
-import ItemCount from '../Components/ItemCount/ItemCount'
-import ItemList from '../Components/ItemList/ItemList'
-import { baseUrl } from '../constantes'
-
-
+import React, { useEffect, useState } from "react";
+import "./Styles.css";
+import ItemCount from "../Components/ItemCount/ItemCount";
+import ItemList from "../Components/ItemList/ItemList";
+import { baseUrl } from "../constantes";
 
 const ItemListContainer = () => {
+  const [productos, setProductos] = useState([]);
 
-const [productos, setProductos]= useState([])
-
-const getProducts = async() => {
+  const getProducts = async () => {
     try {
-      const response = await fetch(`${baseUrl}/products`);
+      const response = await fetch(baseUrl);
       const data = await response.json();
       console.log(data);
       setProductos(data);
-    } catch(error) {
-       console.log('error');
-       console.log(error.message);
-    }}
-     
+    } catch (error) {
+      console.log("error");
+      console.log(error.message);
+    }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     getProducts();
-  }, [])
+  }, []);
 
   return (
-    
     <div>
-    
-    <ItemList products={productos}/>
-   
+      <ItemList products={productos} />
     </div>
-  )
-    
-  }
+  );
+};
 
 export default ItemListContainer;
 
- 
 /*
 const productos = [
   { "id":1 , "title": "Cornbread", "price": $1.400, "image": "https://images.pexels.com/photos/3850997/pexels-photo-3850997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"},
@@ -55,8 +47,3 @@ const productos = [
   { "id":"11" ,"title": "Chocolate Cookies", "price": $510,  "image": "https://img.freepik.com/free-photo/soft-dark-chocolate-brownie-cookies-brown-background_106006-8471.jpg?w=1480" },
   { "id":"12","title": "Classic Donuts", "price": $200,  "image": "https://img.freepik.com/free-photo/two-glazed-donuts-marble_114579-46459.jpg?t=st=1656654398~exp=1656654998~hmac=919d858855faf686ef18b743b746b8c963c20bf5ca3a3cc8514113288cc0384f&w=1480"},
 ]*/
-
-
-
-
-  

@@ -18,9 +18,9 @@ const Item = ({ prod }) => {
     <div
       className="card"
       style={{ widtd: "100%", height: "100%", display: "flex" }}
-      onClick={() => navigate(`/${prod.id}`)}
+      onClick={() => navigate(`/detail/${prod.id}`)}
     >
-      <div className="card__body" style={{}}>
+      <div className="card__body">
         <Card sx={{ maxWidth: 300, minHeight: 433 }} className="Card">
           <img
             src={prod.image}
@@ -37,7 +37,7 @@ const Item = ({ prod }) => {
               {prod.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {prod.price}
+              {`Price: $ ${prod.price}`}
             </Typography>
           </CardContent>
           <CardActions>

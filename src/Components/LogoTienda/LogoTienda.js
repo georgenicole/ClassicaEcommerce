@@ -1,9 +1,11 @@
-import React from 'react';
-import Logo from "../Logo/logosinfoniaGrande.png"
-import "./styles.css"
+import { Button } from "@mui/material";
+import React from "react";
+import "./styles.css";
 
 export const LogoTienda = () => {
   return (
-    <img src={Logo} alt="logo"  className='logoPrincipal' style={{width:70, height:80}}/>
-  )
-}
+    <Button variant="text" style={{ color: "#BF9270" }}>
+      Classica
+    </Button>
+  );
+};
