@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({ product }) => {
   return (
@@ -16,19 +17,10 @@ export const ItemDetail = ({ product }) => {
         <h5>{`Price: $ ${product.price}`}</h5>
         <section style={{ marginTop: 40 }}>
           <h4>Description:</h4>
-          <p>{product.description}</p>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "#FAEEE0",
-              color: "#BF9270",
-              width: 140,
-              height: 38,
-              marginTop: 40,
-            }}
-          >
-            Buy
-          </Button>
+          <p style={{ marginBotton: 30 }}>{product.description}</p>
+        </section>
+        <section>
+          <ItemCount />
         </section>
       </div>
     </div>

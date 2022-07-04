@@ -1,10 +1,9 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 import "./Styles.css";
 
 const HomeItems = ({ prod }) => {
-  let navigate = useNavigate();
   return (
     <div className="homeItems-navbar">
       <Button variant="text">
