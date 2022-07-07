@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import "./Styles.css";
 
-const ItemCount = ({ handleAdd, stock }) => {
-  const [count, setCount] = useState(1);
+const ItemCount = ({ onConfirm, maxQuantity }) => {
+  const [value, setValue] = useState(1);
 
-  const onAdd = () => {
-    setCount(count + 1);
-  };
-
-  const onDecrement = () => {
-    setCount(count - 1);
+  const handleConfirm = () => {
+    if (value <= maxQuantity) {
+      onConfirm(value);
+    } else {
+      alert("Value > maxQuantity");
+    }
   };
 
   return (
@@ -21,18 +21,18 @@ const ItemCount = ({ handleAdd, stock }) => {
             className="buttonCount-style"
             style={{ color: "#BF9270", borderColor: "#BF9270" }}
             variant="outlined"
-            onClick={onAdd}
-            disabled={count === stock}
+            onClick={() => setValue((value) => value + 1)}
+            disabled={value === maxQuantity}
           >
             +
           </Button>
-          <p className="countStyles">{count}</p>
+          <p className="countStyles">{value}</p>
           <Button
             style={{ color: "#BF9270", borderColor: "#BF9270" }}
             className="buttonCount-style"
             variant="outlined"
-            onClick={onDecrement}
-            disabled={count <= 1}
+            onClick={() => setValue((value) => value - 1)}
+            disabled={value === 1}
           >
             -
           </Button>
@@ -47,10 +47,9 @@ const ItemCount = ({ handleAdd, stock }) => {
             height: 38,
             marginTop: 40,
           }}
-          disabled={stock <= 0}
-          onClick={() => handleAdd(count)}
+          onClick={handleConfirm}
         >
-          Add to cart
+          Confirm
         </Button>
       </div>
     </div>

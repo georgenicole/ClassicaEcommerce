@@ -1,8 +1,21 @@
 import { Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({ product }) => {
+  const navigate = useNavigate();
+
+  product.stock = 10;
+  const [qtyAdded, setQtyAdded] = useState(0);
+
+  const handleConfirm = (qty) => {
+    setQtyAdded(qty);
+  };
+  const handleTerminate = () => {
+    navigate("/cart");
+  };
+  console.log(qtyAdded);
   return (
     <div style={{ display: "flex" }}>
       <div>
@@ -20,7 +33,23 @@ export const ItemDetail = ({ product }) => {
           <p style={{ marginBotton: 30 }}>{product.description}</p>
         </section>
         <section>
-          <ItemCount />
+          {!qtyAdded ? (
+            <ItemCount onConfirm={handleConfirm} maxQuantity={product.stock} />
+          ) : (
+            <Button
+              variant="contained"
+              style={{
+                backgroundColor: "#FAEEE0",
+                color: "#BF9270",
+                width: 140,
+                height: 38,
+                marginTop: 40,
+              }}
+              onClick={handleTerminate}
+            >
+              checkout
+            </Button>
+          )}
         </section>
       </div>
     </div>
