@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 const Cart = () => {
-  const { cart, removeItem } = useContext(Shop);
+  const { cart, removeItem, clear } = useContext(Shop);
 
   return (
     <div style={{ margin: 20 }}>
@@ -50,15 +50,19 @@ const Cart = () => {
         );
       })}
       <div style={{ marginRight: 35 }}>
-        <Button variant="text" style={{ color: "#BF9270" }}>
-          <Link to="/">Continue Shopping</Link>
+        <Button variant="text">
+          <Link to="/" style={{ color: "#BF9270", textDecoration: "none" }}>
+            Continue Shopping
+          </Link>
         </Button>
-        <Button variant="text" style={{ color: "#BF9270" }}>
-          <Link to="*">Confirm</Link>
+        <Button variant="text">
+          <Link to="*" style={{ color: "#BF9270", textDecoration: "none" }}>
+            Confirm
+          </Link>
         </Button>
         <Button
           variant="text"
-          onClick={() => removeItem()}
+          onClick={() => clear()}
           style={{ color: "#BF9270" }}
         >
           Cancel

@@ -18,7 +18,9 @@ const ShopProvider = ({ children }) => {
     }
   };
 
-  const clear = (id) => {};
+  const clear = (id) => {
+    setCart([]);
+  };
   const removeItem = (id) => {
     const productosFiltrados = cart.filter((producto) => producto.id !== id);
     setCart(productosFiltrados);
@@ -29,7 +31,9 @@ const ShopProvider = ({ children }) => {
   };
 
   return (
-    <Shop.Provider value={{ estadoA, setEstadoA, addItem, cart, removeItem }}>
+    <Shop.Provider
+      value={{ estadoA, setEstadoA, addItem, cart, removeItem, clear }}
+    >
       {children}
     </Shop.Provider>
   );
