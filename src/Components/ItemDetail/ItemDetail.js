@@ -1,6 +1,7 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { Shop } from "../../Context/ShopContext";
 import ItemCount from "../ItemCount/ItemCount";
 
 export const ItemDetail = ({ product }) => {
@@ -9,10 +10,13 @@ export const ItemDetail = ({ product }) => {
   product.stock = 10;
   const [qtyAdded, setQtyAdded] = useState(0);
 
+  const { addItem } = useContext(Shop);
+
   const handleConfirm = (qty) => {
     setQtyAdded(qty);
   };
   const handleTerminate = () => {
+    addItem(product, qtyAdded);
     navigate("/cart");
   };
   console.log(qtyAdded);
