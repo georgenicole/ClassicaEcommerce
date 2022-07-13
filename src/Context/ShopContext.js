@@ -3,8 +3,6 @@ import React, { createContext, useState } from "react";
 export const Shop = createContext();
 
 const ShopProvider = ({ children }) => {
-  const [estadoA, setEstadoA] = useState("Default");
-
   const [cart, setCart] = useState([]);
 
   const addItem = (producto, cantidad) => {
@@ -31,9 +29,7 @@ const ShopProvider = ({ children }) => {
   };
 
   return (
-    <Shop.Provider
-      value={{ estadoA, setEstadoA, addItem, cart, removeItem, clear }}
-    >
+    <Shop.Provider value={{ addItem, cart, removeItem, clear }}>
       {children}
     </Shop.Provider>
   );

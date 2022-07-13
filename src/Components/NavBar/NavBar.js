@@ -20,11 +20,7 @@ export default function NavBar() {
         <Toolbar style={{ width: "100%", height: 68 }}>
           <LogoTienda />
           <HomeItems />
-          <Button variant="text">
-            <Link to="/#" style={{ color: "#BF9270", textDecoration: "none" }}>
-              {estadoA}
-            </Link>
-          </Button>
+
           <CarWidget />
           <AvatarImage />
         </Toolbar>
