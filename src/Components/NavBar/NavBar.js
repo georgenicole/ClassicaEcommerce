@@ -12,8 +12,6 @@ import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
-  const { estadoA } = useContext(Shop);
-  console.log(estadoA);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="inherit">

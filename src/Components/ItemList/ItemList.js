@@ -16,9 +16,6 @@ const ItemList = ({ products }) => {
       {products?.map((prod) => (
         <Item key={prod.id} prod={prod} />
       ))}
-      <Button variant="text" onClick={handleChangeState}>
-        Cambio estado A
-      </Button>
     </div>
   );
 };
