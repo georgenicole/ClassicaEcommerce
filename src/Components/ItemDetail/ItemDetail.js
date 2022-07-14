@@ -14,9 +14,9 @@ export const ItemDetail = ({ product }) => {
 
   const handleConfirm = (qty) => {
     setQtyAdded(qty);
+    addItem(product, qtyAdded);
   };
   const handleTerminate = () => {
-    addItem(product, qtyAdded);
     navigate("/cart");
   };
   console.log(qtyAdded);

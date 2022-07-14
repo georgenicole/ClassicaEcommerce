@@ -1,30 +1,34 @@
 import React from "react";
 import "./styles.css";
 import BakeryDiningIcon from "@mui/icons-material/BakeryDining";
+import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export const LogoTienda = ({ prod }) => {
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <Button
+      variant="text"
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        width: 10,
+        height: 10,
+        fontWeight: "bold",
+      }}
+    >
       <BakeryDiningIcon
         style={{
           color: "#BF9270",
           backgroundColor: "#FAEEE0",
-          width: 38,
-          height: 33,
+          width: 33,
+          height: 30,
           borderRadius: 9,
-          marginLeft: 10,
-          marginTop: 10,
+          margin: 10,
         }}
       />
-      <p
-        style={{
-          marginLeft: 8,
-          color: "#BE8C63",
-          fontWeight: "bold",
-        }}
-      >
+      <Link to="/" style={{ color: "#BF9270", textDecoration: "none" }}>
         Classica
-      </p>
-    </div>
+      </Link>
+    </Button>
   );
 };
