@@ -16,7 +16,7 @@ const ShopProvider = ({ children }) => {
     }
   };
 
-  const clear = (id) => {
+  const clear = () => {
     setCart([]);
   };
   const removeItem = (id) => {

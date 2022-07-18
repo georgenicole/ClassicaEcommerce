@@ -7,19 +7,19 @@ import ItemCount from "../ItemCount/ItemCount";
 export const ItemDetail = ({ product }) => {
   const navigate = useNavigate();
 
-  product.stock = 10;
   const [qtyAdded, setQtyAdded] = useState(0);
 
   const { addItem } = useContext(Shop);
-
+  product.stock = 10;
   const handleConfirm = (qty) => {
     setQtyAdded(qty);
-    addItem(product, qtyAdded);
+
+    addItem(product, qty);
   };
   const handleTerminate = () => {
     navigate("/cart");
   };
-  console.log(qtyAdded);
+
   return (
     <div style={{ display: "flex" }}>
       <div>
