@@ -1,8 +1,8 @@
 .homeItems-navbar {
     margin-left: 59em;
-    
+    display: flex;
 
 }
-.homeItems-navbar_buttons{
+.homeitems-buttons{
     text-decoration: none;
 }
