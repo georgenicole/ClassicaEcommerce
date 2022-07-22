@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 
-import MemoizedCount from "../components/MemoizedCount";
 
 const CounterContainer = () => {
   const handleConfirm = () => {
-    console.log("Se agrego al cart");
+   
   };
 
   const [state, setState] = useState(false);
