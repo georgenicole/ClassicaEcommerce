@@ -10,7 +10,7 @@ export const ItemDetail = ({ product }) => {
   const [qtyAdded, setQtyAdded] = useState(0);
 
   const { addItem } = useContext(Shop);
-  product.stock = 10;
+
   const handleConfirm = (qty) => {
     setQtyAdded(qty);
 
