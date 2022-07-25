@@ -3,7 +3,8 @@ import Button from "@mui/material/Button";
 import "./Styles.css";
 
 const ItemCount = ({ onConfirm, maxQuantity }) => {
-  const [value, setValue] = useState(1);
+  const initial = (maxQuantity >= 1)? 1: 0;
+  const [value, setValue] = useState(initial);
 
   const handleConfirm = () => {
     if (value <= maxQuantity) {
@@ -32,7 +33,7 @@ const ItemCount = ({ onConfirm, maxQuantity }) => {
             className="buttonCount-style"
             variant="outlined"
             onClick={() => setValue((value) => value - 1)}
-            disabled={value === 1}
+            disabled={value === 0}
           >
             -
           </Button>
@@ -41,8 +42,8 @@ const ItemCount = ({ onConfirm, maxQuantity }) => {
         <Button
           variant="contained"
           style={{
-            backgroundColor: "#FAEEE0",
-            color: "#BF9270",
+            backgroundColor: "#A0D995 ",
+            color: "#125C13",
             width: 140,
             height: 38,
             marginTop: 40,

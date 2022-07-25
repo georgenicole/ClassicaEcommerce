@@ -1,6 +1,7 @@
 import React from "react";
 import { IconButton } from "@mui/material";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
+import "./Styles.css"
 
 const AvatarImage = () => {
   return (

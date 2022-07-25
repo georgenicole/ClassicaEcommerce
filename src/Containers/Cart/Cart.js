@@ -4,10 +4,18 @@ import { Button, IconButton, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./styles.css";
+import guardarOrden from "../../utils/guardarOrden";
+import ordenGenerada from "../../utils/generarOrden";
+import Form from "../../Components/Form/Form";
 
 const Cart = () => {
   const [precioTotal, setPrecioTotal] = useState(0);
   const { cart, removeItem, clear } = useContext(Shop);
+
+  const confirmarOrden = async (name, adress) => {
+    const order = ordenGenerada(name, adress, cart, precioTotal);
+    guardarOrden(cart, order);
+  };
 
   useEffect(() => {
     const precioReduce = () => {
@@ -19,6 +27,11 @@ const Cart = () => {
     };
     precioReduce();
   }, [cart]);
+
+  const [isForm, setForm] = useState(false);
+  const handleSubmit = (param) => {
+    setForm(param);
+  };
 
   const cartMap = cart.map((producto) => {
     console.log(producto);
@@ -64,7 +77,8 @@ const Cart = () => {
   });
 
   return (
-    <div style={{ margin: 20 }}>
+    <div className="cart-container">
+      {isForm && <Form cerrar={handleSubmit} makeOrder={confirmarOrden} />}
       {cartMap}
       <div style={{ marginRight: 35 }}>
         <Button variant="text">
@@ -74,17 +88,26 @@ const Cart = () => {
         </Button>
         {cart.length !== 0 ? (
           <>
-            <Button variant="text">
+            {/* <Button variant="text">
               <Link to="*" style={{ color: "#BF9270", textDecoration: "none" }}>
                 Confirm
               </Link>
-            </Button>
+            </Button> */}
             <Button
               variant="text"
               onClick={() => clear()}
-              style={{ color: "#BF9270" }}
+              style={{ color: "#FF5D5D" }}
             >
               Cancel
+            </Button>
+            <Button
+             variant="text"
+             style={{ color: "#A0D995" }}
+              onClick={() => {
+                handleSubmit(true);
+              }}
+            >
+              Confirmar compra
             </Button>
             <p>Total price: ${precioTotal}</p>
           </>

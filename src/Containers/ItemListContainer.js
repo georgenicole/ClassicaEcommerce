@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Styles.css";
 import ItemList from "../Components/ItemList/ItemList";
-import { baseUrl } from "../constantes";
 import { useParams } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import { collection, query, getDocs } from "firebase/firestore";
