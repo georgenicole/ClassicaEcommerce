@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { Shop } from "../../Context/ShopContext";
 import ItemCount from "../ItemCount/ItemCount";
 
-export const ItemDetail = ({ product }) => {
+export const ItemDetail = ({ product}) => {
   const navigate = useNavigate();
-
   const [qtyAdded, setQtyAdded] = useState(0);
 
   const { addItem } = useContext(Shop);
@@ -38,7 +37,7 @@ export const ItemDetail = ({ product }) => {
         </section>
         <section>
           {!qtyAdded ? (
-            <ItemCount onConfirm={handleConfirm} maxQuantity={product.stock} />
+            <ItemCount onConfirm={handleConfirm} stock={product.stock} />
           ) : (
             <Button
               variant="contained"

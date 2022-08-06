@@ -5,7 +5,6 @@ const ordenGenerada = (name, adress, phone, email, cart, total) => {
       adress: adress,
       phone: phone,
       email: email
-     
     },
     items: cart,
     total: total,

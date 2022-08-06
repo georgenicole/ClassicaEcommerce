@@ -12,9 +12,10 @@ const Cart = () => {
   const [precioTotal, setPrecioTotal] = useState(0);
   const { cart, removeItem, clear } = useContext(Shop);
 
-  const confirmarOrden = async (name, adress) => {
-    const order = ordenGenerada(name, adress, cart, precioTotal);
+  const confirmarOrden = async (name, adress, phone, email) => {
+    const order = ordenGenerada(name, adress, phone, email, cart, precioTotal);
     guardarOrden(cart, order);
+    clear()
   };
 
   useEffect(() => {

@@ -2,12 +2,13 @@ import React, { useContext } from "react";
 import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import { Badge, IconButton } from "@mui/material";
 import { Shop } from "../../Context/ShopContext";
+import { Link } from "react-router-dom";
 
 const CarWidget = () => {
   const { cart } = useContext(Shop);
 
   return (
-    <div>
+    <Link to="/cart">
       <IconButton size="small" edge="start">
         <Badge
           badgeContent={cart.length}
@@ -30,7 +31,7 @@ const CarWidget = () => {
           />
         </Badge>
       </IconButton>
-    </div>
+    </Link>
   );
 };
 export default CarWidget;

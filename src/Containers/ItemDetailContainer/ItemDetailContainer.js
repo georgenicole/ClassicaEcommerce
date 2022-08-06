@@ -6,11 +6,8 @@ import { ItemDetail } from "../../Components/ItemDetail/ItemDetail";
 import { db } from "../../firebase/config";
 
 export const ItemDetailContainer = () => {
-  let { id } = useParams();
   const [productDetail, setProductDetail] = useState({});
-  const [error, setError] = useState("");
   const params = useParams();
-
   useEffect(() => {
     const getProduct = async () => {
       try {
@@ -18,16 +15,13 @@ export const ItemDetailContainer = () => {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log(docSnap.id);
-          console.log("Document data:", docSnap.data());
-          const productDetail = { id: docSnap.id, ...docSnap.data() };
+          const productDetail = { id: docSnap.id, ...docSnap.data()};
           setProductDetail(productDetail);
         } else {
-          console.log("No such document!");
+          alert("No such document!");
         }
       } catch (error) {
-        console.log(error);
-        setError(error.message);
+        alert(error);
       }
     };
     getProduct();

@@ -1,21 +1,34 @@
 import React, { useState } from "react";
 import { Button } from "@mui/material";
 import "./styles.css";
+import Swal from "sweetalert2";
 
 const Form = ({ cerrar, makeOrder }) => {
   const [name, setName] = useState("");
- 
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [reEmail, setReEmail] = useState("");
   const handleClose = (event) => {
     event.preventDefault();
     cerrar(false);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    makeOrder(name, adress);
-    cerrar(false);
+
+    const formArray = [ name.length > 2, adress.length > 3, phone.length > 2 ];
+    for( let i = 0; i < formArray.length; i++ ){
+      if(formArray[i] === false){
+        Swal.fire("Hay un error en el formulario");
+        return
+      }
+    }
+    if (email === reEmail) {
+      makeOrder(name, adress, phone, email);
+      cerrar(false);
+    } else {
+      Swal.fire("El Email no coincide");
+    }
   };
   return (
     <div className="modal">
@@ -27,7 +40,6 @@ const Form = ({ cerrar, makeOrder }) => {
           value={name}
           onChange={(text) => setName(text.target.value)}
         />
-    
         <p className="form-title">Contact information</p>
         <input
           className="inputs-form"
@@ -35,7 +47,7 @@ const Form = ({ cerrar, makeOrder }) => {
           value={adress}
           onChange={(text) => setAdress(text.target.value)}
         />
-         <input
+        <input
           className="inputs-form"
           placeholder="Phone..."
           value={phone}
@@ -46,6 +58,12 @@ const Form = ({ cerrar, makeOrder }) => {
           placeholder="Email..."
           value={email}
           onChange={(text) => setEmail(text.target.value)}
+        />
+        <input
+          className="inputs-form"
+          placeholder="Confirm email..."
+          value={reEmail}
+          onChange={(text) => setReEmail(text.target.value)}
         />
         <div className="form">
           <Button

@@ -1,16 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./Styles.css";
 
-const ItemCount = ({ onConfirm, maxQuantity }) => {
-  const initial = (maxQuantity >= 1)? 1: 0;
-  const [value, setValue] = useState(initial);
+const ItemCount = ({ onConfirm, stock }) => {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    stock > 0 ? setValue(1) : setValue(0);
+  }, [stock]);
+
+  const handleAdd = () => {
+    if (value < stock) setValue(parseInt(value) + 1);
+  };
+
+  const handleSub = () => {
+    if (value > 0) setValue(parseInt(value) - 1);
+  };
 
   const handleConfirm = () => {
-    if (value <= maxQuantity) {
+    if (value <= stock) {
       onConfirm(value);
-    } else {
-      alert("Value > maxQuantity");
     }
   };
 
@@ -22,8 +31,8 @@ const ItemCount = ({ onConfirm, maxQuantity }) => {
             className="buttonCount-style"
             style={{ color: "#BF9270", borderColor: "#BF9270" }}
             variant="outlined"
-            onClick={() => setValue((value) => value + 1)}
-            disabled={value === maxQuantity}
+            onClick={handleAdd}
+            disabled={value === stock}
           >
             +
           </Button>
@@ -32,7 +41,7 @@ const ItemCount = ({ onConfirm, maxQuantity }) => {
             style={{ color: "#BF9270", borderColor: "#BF9270" }}
             className="buttonCount-style"
             variant="outlined"
-            onClick={() => setValue((value) => value - 1)}
+            onClick={handleSub}
             disabled={value === 0}
           >
             -
@@ -48,6 +57,7 @@ const ItemCount = ({ onConfirm, maxQuantity }) => {
             height: 38,
             marginTop: 40,
           }}
+          disabled={value === 0}
           onClick={handleConfirm}
         >
           Confirm

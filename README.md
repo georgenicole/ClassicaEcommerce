@@ -22,7 +22,9 @@ O también clonando el repositorio
 
 ## Librerias utilizadas
 
-Se ha usado para los estilos Material Ui
+Se ha usado para los estilos Material Ui.
+Se ha utilizado sweetalert2 para estilizar los alert.
+se ha utilizado React Spinners para agregar un loader al proyecto.
 
 ## Cómo contribuir
 
