@@ -35,7 +35,11 @@ const guardarOrden = (cart, orden) => {
             addDoc(collection(db, "orders"), orden)
               .then(({ id }) => {
                 batch.commit().then(() => {
-                  Swal.fire("Se ha generado la orden correctamente con id: " + id);
+                  Swal.fire({
+                    title:"Se ha generado la orden correctamente con id: " + id,
+                    confirmButtonColor:"#BF9270",
+                    icon:'success'
+                  });
                 });
               })
               .catch((err) => {
