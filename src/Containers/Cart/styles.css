@@ -1,8 +1,13 @@
-.Notselect-products{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.Notselect-products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.cart-containe{
-    margin: 20px;
+.cart-container {
+  margin: 20px;
+}
+.img-product-cart {
+  width: 80px;
+  height: 90px;
+  border-radius: 10px;
 }

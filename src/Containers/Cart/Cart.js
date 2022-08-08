@@ -15,7 +15,7 @@ const Cart = () => {
   const confirmarOrden = async (name, adress, phone, email) => {
     const order = ordenGenerada(name, adress, phone, email, cart, precioTotal);
     guardarOrden(cart, order);
-    clear()
+    clear();
   };
 
   useEffect(() => {
@@ -38,6 +38,7 @@ const Cart = () => {
     console.log(producto);
     return (
       <div
+      className="container-cart"
         key={producto.id}
         style={{
           width: 500,
@@ -49,7 +50,8 @@ const Cart = () => {
           <img
             src={producto.image}
             alt="imagen"
-            style={{ width: 80, height: 90, borderRadius: 10 }}
+            // style={{ width: 80, height: 90, borderRadius: 10 }}
+            className="img-product-cart"
           />
         </p>
         <div style={{ marginLeft: 20 }}>
@@ -89,11 +91,6 @@ const Cart = () => {
         </Button>
         {cart.length !== 0 ? (
           <>
-            {/* <Button variant="text">
-              <Link to="*" style={{ color: "#BF9270", textDecoration: "none" }}>
-                Confirm
-              </Link>
-            </Button> */}
             <Button
               variant="text"
               onClick={() => clear()}
@@ -102,8 +99,8 @@ const Cart = () => {
               Cancel
             </Button>
             <Button
-             variant="text"
-             style={{ color: "#A0D995" }}
+              variant="text"
+              style={{ color: "#A0D995" }}
               onClick={() => {
                 handleSubmit(true);
               }}
