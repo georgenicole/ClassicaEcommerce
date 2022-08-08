@@ -5,9 +5,32 @@
 }
 .cart-container {
   margin: 20px;
+  border-width: 1px;
+  border-style: dotted;
+  border-color: #BF9270;
+  padding: 30px;
+  border-radius: 10px;
+}
+.Cart-container-element{
+    display: flex;
+    background-color: #FAEEE0;
+    margin-top: 10px;
+    border-radius: 10px;
+  
 }
 .img-product-cart {
   width: 80px;
   height: 90px;
   border-radius: 10px;
+  margin-left: 20px;
+}
+.container-btns-cart{
+    display: flex;
+    justify-content: center;
+    margin-right: 35px;
+     margin-top: 30px;
+}
+.total-price{
+    font-weight: 600;
+    margin: 30px;
 }

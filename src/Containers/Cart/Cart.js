@@ -11,13 +11,11 @@ import Form from "../../Components/Form/Form";
 const Cart = () => {
   const [precioTotal, setPrecioTotal] = useState(0);
   const { cart, removeItem, clear } = useContext(Shop);
-
   const confirmarOrden = async (name, adress, phone, email) => {
     const order = ordenGenerada(name, adress, phone, email, cart, precioTotal);
     guardarOrden(cart, order);
     clear();
   };
-
   useEffect(() => {
     const precioReduce = () => {
       const valor = Object.values(cart).reduce(
@@ -38,19 +36,13 @@ const Cart = () => {
     console.log(producto);
     return (
       <div
-      className="container-cart"
+      className="Cart-container-element"
         key={producto.id}
-        style={{
-          width: 500,
-          heigth: 500,
-          display: "flex",
-        }}
       >
         <p>
           <img
             src={producto.image}
             alt="imagen"
-            // style={{ width: 80, height: 90, borderRadius: 10 }}
             className="img-product-cart"
           />
         </p>
@@ -83,7 +75,8 @@ const Cart = () => {
     <div className="cart-container">
       {isForm && <Form cerrar={handleSubmit} makeOrder={confirmarOrden} />}
       {cartMap}
-      <div style={{ marginRight: 35 }}>
+      <p className="total-price">Total price: ${precioTotal}</p>
+      <div style={{  }} className="container-btns-cart">
         <Button variant="text">
           <Link to="/" style={{ color: "#BF9270", textDecoration: "none" }}>
             Continue Shopping
@@ -107,7 +100,7 @@ const Cart = () => {
             >
               Confirmar compra
             </Button>
-            <p>Total price: ${precioTotal}</p>
+           
           </>
         ) : (
           <Typography className="Notselect-products">
