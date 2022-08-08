@@ -19,7 +19,6 @@ const CarWidget = () => {
           style={{ color: "#614124" }}
         >
           <LocalGroceryStoreIcon
-            className="Icon-CardWidget"
             style={{
               color: "#BF9270",
               backgroundColor: "#FFEDDB",

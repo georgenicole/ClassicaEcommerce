@@ -33,8 +33,8 @@ export default function NavBar() {
       <AppBar position="static" color="inherit">
         <Toolbar className="toobar">
           <LogoTienda />
-          <div className="input-search">
-            <input type="text" placeholder="Search..." onChange={handleSearch}  />
+          <div className="container-search">
+            <input  type="text" placeholder="Search..." onChange={handleSearch} />
           </div>
           <HomeItems />
           <CarWidget />
