@@ -1,5 +1,7 @@
 # Ecommerce CLASSICA
 
+![Flujo_de_pagina](./public/flujoDePagina.gif)
+
 An Ecommerce based on a bakery has been created.
 
 # Classica
