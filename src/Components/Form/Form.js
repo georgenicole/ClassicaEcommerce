@@ -19,7 +19,11 @@ const Form = ({ cerrar, makeOrder }) => {
     const formArray = [ name.length > 2, adress.length > 3, phone.length > 2 ];
     for( let i = 0; i < formArray.length; i++ ){
       if(formArray[i] === false){
-        Swal.fire("Hay un error en el formulario");
+        Swal.fire({
+          title:"Hay un error en el formulario",
+          confirmButtonColor:"#BF9270",
+          icon:'error'
+        });
         return
       }
     }
@@ -27,7 +31,11 @@ const Form = ({ cerrar, makeOrder }) => {
       makeOrder(name, adress, phone, email);
       cerrar(false);
     } else {
-      Swal.fire("El Email no coincide");
+      Swal.fire({
+        title:"El Email no coincide",
+          confirmButtonColor:"#BF9270",
+          icon:'error'
+      });
     }
   };
   return (
