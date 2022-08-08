@@ -1,31 +1,32 @@
 # Ecommerce CLASSICA
 
-He creado un Ecommerce basado en una panaderia
+An Ecommerce based on a bakery has been created.
 
 # Classica
 
-ClASSICA busca llegar a ese tipo de personas que puede ser que no tengan tiempo de ir a una panaderia o que simplemente prefieren pedir por la pagina porque les resulta mas comodo.
+CLASSICA seeks to reach those people who may not have time to go to a bakery or prefer to order online because it is more convenient for them.
 
-## Para instalar todas las dependencias
+## To install all dependencies
 
-Puedes instalarlo desde npm
+You can install it from npm
 
 `$ npm install project-class2`
 
-O también clonando el repositorio
+Or by cloning the repository
 
 `$ git clone url`
 
-## Para iniciar el proyecto
+## To start the project
 
 `$ npm run start`
 
-## Librerias utilizadas
+## Libraries used
 
-Se ha usado para los estilos Material Ui.
-Se ha utilizado sweetalert2 para estilizar los alert.
-se ha utilizado React Spinners para agregar un loader al proyecto.
 
-## Cómo contribuir
+Material ui has been used for the styles.
+Sweetalert2 has been used to style the alerts.
+React Spinners has been used to add a loader to the project.
 
-Puedes crear un pull request al proyecto
+## How to contribute?
+
+You can create a pull request to the project
