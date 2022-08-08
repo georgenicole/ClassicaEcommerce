@@ -33,18 +33,10 @@ const Cart = () => {
   };
 
   const cartMap = cart.map((producto) => {
-    console.log(producto);
     return (
-      <div
-      className="Cart-container-element"
-        key={producto.id}
-      >
+      <div className="Cart-container-element" key={producto.id}>
         <p>
-          <img
-            src={producto.image}
-            alt="imagen"
-            className="img-product-cart"
-          />
+          <img src={producto.image} alt="imagen" className="img-product-cart" />
         </p>
         <div style={{ marginLeft: 20 }}>
           <p> {producto.title}</p>
@@ -76,9 +68,19 @@ const Cart = () => {
       {isForm && <Form cerrar={handleSubmit} makeOrder={confirmarOrden} />}
       {cartMap}
       <p className="total-price">Total price: ${precioTotal}</p>
-      <div style={{  }} className="container-btns-cart">
-        <Button variant="text">
-          <Link to="/" style={{ color: "#BF9270", textDecoration: "none" }}>
+      <div className="container-btns-cart">
+        <Button
+          variant="text"
+        >
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "#BF9270",
+              width: 140,
+              height: 38,
+            }}
+          >
             Continue Shopping
           </Link>
         </Button>
@@ -87,20 +89,30 @@ const Cart = () => {
             <Button
               variant="text"
               onClick={() => clear()}
-              style={{ color: "#FF5D5D" }}
+              style={{
+                color: "#000",
+                backgroundColor: "#FF5D5D",
+                width: 140,
+                height: 38,
+              }}
             >
               Cancel
             </Button>
             <Button
               variant="text"
-              style={{ color: "#A0D995" }}
+              style={{
+                color: "#000",
+                backgroundColor: "#A0D995",
+                width: 150,
+                height: 38,
+                padding: 1,
+              }}
               onClick={() => {
                 handleSubmit(true);
               }}
             >
               Confirmar compra
             </Button>
-           
           </>
         ) : (
           <Typography className="Notselect-products">

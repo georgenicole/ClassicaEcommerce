@@ -27,8 +27,10 @@
 .container-btns-cart{
     display: flex;
     justify-content: center;
+    justify-content: space-evenly;
     margin-right: 35px;
      margin-top: 30px;
+    
 }
 .total-price{
     font-weight: 600;

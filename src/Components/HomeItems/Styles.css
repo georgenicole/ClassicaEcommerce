@@ -1,8 +1,16 @@
 .homeItems-navbar {
-    display: flex;
-    margin-left: 31em;
-
+  display: flex;
+  margin-left: 28em;
 }
-.homeitems-buttons{
-    text-decoration: none;
+.homeitems-buttons {
+  text-decoration: none;
+}
+.searcher {
+border-color: #BF9270;
+  border-width: 1px;
+  border-style: solid;
+  width: 198px;
+  height: 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }

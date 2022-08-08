@@ -1,5 +1,4 @@
 import React from "react";
-import "./styles.css";
 import BakeryDiningIcon from "@mui/icons-material/BakeryDining";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";

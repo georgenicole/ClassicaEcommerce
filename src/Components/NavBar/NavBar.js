@@ -34,7 +34,7 @@ export default function NavBar() {
         <Toolbar className="toobar">
           <LogoTienda />
           <div className="container-search">
-            <input  type="text" placeholder="Search..." onChange={handleSearch} />
+            <input  type="text" placeholder="Search..." onChange={handleSearch}  className="searcher"/>
           </div>
           <HomeItems />
           <CarWidget />
