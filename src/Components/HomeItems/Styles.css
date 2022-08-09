@@ -1,6 +1,10 @@
 .homeItems-navbar {
   display: flex;
-  margin-left: 27em;
+  /* margin-left: 27em; */
+  width: 100%;
+    height: fit-content;
+    justify-content: flex-end;
+  
 }
 .homeitems-buttons {
   text-decoration: none;
